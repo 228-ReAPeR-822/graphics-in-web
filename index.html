@@ -9,25 +9,153 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
             <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <h1 class="mb-3">Добро пожаловать на сайт о графике в Web!</h1>
-        <p>Современный web невозможно представить без графики. Изображения, иконки, схемы, анимации и интерактивные визуализации — всё это формирует пользовательский опыт. Однако разные типы графики решают разные задачи, и выбор неправильного инструмента приводит к медленной загрузке, размытым элементам и плохой доступности.</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">Добро пожаловать на сайт о графике в Web!</h1>
+                <p>Современный веб невозможно представить без графики. Изображения, иконки, схемы, анимации и интерактивные визуализации — всё это формирует пользовательский опыт и во многом определяет, как человек воспринимает сайт. Однако графика в вебе — это не просто «картинки на странице». За ней стоит целый набор технологий, форматов и подходов, у каждого из которых свои сильные и слабые стороны. Выбор неправильного инструмента приводит к медленной загрузке, размытым элементам на экранах с высокой плотностью пикселей и плохой доступности для пользователей с ограничениями. Этот сайт — попытка разобраться, какие бывают виды веб-графики, чем они отличаются и когда что использовать.</p>
+                <hr class="my-4">
+                <h2 id="about" class="mb-3">Что такое графика в Web</h2>
+                <p>Графика в Web — это любые визуальные элементы, которые браузер отображает на странице: фотографии, иллюстрации, иконки, логотипы, диаграммы, схемы, анимации и интерактивные визуализации. Исторически веб начинался с простых изображений в форматах GIF и JPEG, вставленных через тег <code>&lt;img&gt;</code>. Сегодня арсенал веб-разработчика значительно шире: от оптимизированных форматов нового поколения (WebP, AVIF) до векторной графики (SVG) и полностью программной отрисовки через Canvas.</p>
+                <p>Главное отличие веб-графики от графики в полиграфии или играх — <strong>ограничения среды</strong>. Изображение должно быстро загружаться по сети, корректно отображаться на экранах разных размеров и плотностей, работать в разных браузерах и не ломать доступность. Именно эти ограничения определяют, какой формат и подход выбрать в каждом конкретном случае.</p>
+                <hr class="my-4">
+                <h2 id="methods" class="mb-3">Методы графики</h2>
+                <div class="d-flex flex-column gap-4">
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">Растровая графика</h3>
+                            <p class="mb-3">Изображение состоит из сетки пикселей. Это фотографии, сложные иллюстрации, скриншоты. Основные форматы: JPEG, PNG, GIF, WebP. Растр точно передаёт цвета и градиенты, но плохо масштабируется: при увеличении изображение становится размытым.</p>
+                            <a href="./raster.html" class="link-primary text-decoration-none">Подробнее про растровую графику →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="./images/raster-thumb-1280.webp"
+                                 srcset="./images/raster-thumb-640.webp 640w,
+                                         ./images/raster-thumb-1280.webp 1280w"
+                                 sizes="(max-width: 768px) 100vw, 280px"
+                                 alt="Пример растровой графики"
+                                 class="img-fluid rounded"
+                                 style="max-width: 280px;"
+                                 loading="lazy"
+                                 width="1280" height="1392">
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">SVG</h3>
+                            <p class="mb-3">Векторная графика, описываемая математическими формулами. Идеально масштабируется без потери качества, весит мало, легко стилизуется через CSS. Подходит для иконок, логотипов, схем и диаграмм.</p>
+                            <a href="./svg.html" class="link-primary text-decoration-none">Подробнее про векторную графику →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="./images/svg-thumb.svg"
+                             alt="Пример SVG-графики"
+                             class="img-fluid"
+                             style="max-width: 280px;"
+                             loading="lazy"
+                             width="300" height="300">
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">Canvas</h3>
+                            <p class="mb-3">Динамическая графика, рисуемая программно через JavaScript. Используется в играх, редакторах, визуализациях данных и интерактивных анимациях. Даёт максимальную гибкость, но требует программирования.</p>
+                            <a href="./canvas.html" class="link-primary text-decoration-none">Подробнее про Canvas →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <canvas id="canvasDemo" width="280" height="280" class="rounded border"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <h2 id="comparison" class="mb-3">Когда что использовать</h2>
+                <p>Выбор метода зависит от задачи. Таблица ниже помогает быстро сориентироваться, какой подход уместен в конкретной ситуации.</p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <caption>Сравнение методов работы с графикой в Web</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Метод</th>
+                                <th scope="col">Тип графики</th>
+                                <th scope="col">Анимация</th>
+                                <th scope="col">Масштабирование</th>
+                                <th scope="col">Когда использовать</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Растр</th>
+                                <td>Пиксельная</td>
+                                <td>GIF, APNG, WebP</td>
+                                <td>С потерями</td>
+                                <td>Фотографии, сложные иллюстрации, скриншоты</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">SVG</th>
+                                <td>Векторная</td>
+                                <td>CSS, SMIL</td>
+                                <td>Без потерь</td>
+                                <td>Иконки, логотипы, схемы, диаграммы</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Canvas</th>
+                                <td>Пиксельная (через JS)</td>
+                                <td>Полноценная</td>
+                                <td>С потерями</td>
+                                <td>Игры, редакторы, визуализации данных</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr class="my-4">
+                <h2 id="video" class="mb-3">Видео</h2>
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://rutube.ru/play/embed/f599ffce4bc2fd7207452500a7800786/?skinColor=000000"
+                            title="Видео о графике в Web"
+                            allow="clipboard-write; autoplay"
+                            allowfullscreen
+                            loading="lazy"></iframe>
+                </div>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <h6 class="text-body-secondary mb-2">На этой странице</h6>
+                        <a class="nav-link" href="#about">Что это такое</a>
+                        <a class="nav-link" href="#methods">Методы графики</a>
+                        <a class="nav-link" href="#comparison">Сравнение</a>
+                        <a class="nav-link" href="#video">Видео</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <h6 class="text-body-secondary mb-2">Полезные ссылки</h6>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN Web Docs</a></li>
+                        <li><a class="nav-link" href="https://caniuse.com" target="_blank" rel="noopener">Can I Use</a></li>
+                        <li><a class="nav-link" href="https://squoosh.app" target="_blank" rel="noopener">Squoosh</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -37,6 +165,34 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Меню</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <h6 class="text-body-secondary mb-2">Разделы</h6>
+                <a class="nav-link active" href="./index.html">Главная</a>
+                <a class="nav-link" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <h6 class="text-body-secondary mb-2">На этой странице</h6>
+                <a class="nav-link" href="#about" data-bs-dismiss="offcanvas">Что это такое</a>
+                <a class="nav-link" href="#methods" data-bs-dismiss="offcanvas">Методы графики</a>
+                <a class="nav-link" href="#comparison" data-bs-dismiss="offcanvas">Сравнение</a>
+                <a class="nav-link" href="#video" data-bs-dismiss="offcanvas">Видео</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/canvas-demo.min.js"></script>
 </body>
 </html>
