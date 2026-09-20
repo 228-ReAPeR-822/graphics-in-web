@@ -3,30 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>Canvas — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
-                <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
+                <a href="./canvas.html" class="link-primary text-decoration-none fw-bold">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>Canvas</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">Canvas</h1>
+                <p>Canvas — это технология динамической графики, которая рисует изображение программно, в реальном времени. В отличие от SVG, где картинка описывается векторами, а от JPEG и PNG, где она хранится пикселями, Canvas не хранит изображение вообще. Каждый кадр рисуется заново с помощью JavaScript. Это даёт максимальную гибкость, но требует программирования.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>Элемент <code>&lt;canvas&gt;</code> появился в 2004 году — его представила компания Apple для браузера Safari. Идея была простая: дать разработчикам возможность рисовать графику прямо в браузере с помощью скриптов, без сторонних плагинов вроде Flash.</p>
+                <p>Через год технологию подхватил консорциум WHATWG, а в 2014 году — после выхода HTML5 — Canvas стал официальным стандартом веба. С тех пор он поддерживается всеми современными браузерами без исключений.</p>
+                <p>В 2011 году появился <strong>WebGL</strong> — расширение Canvas для работы с 3D-графикой через GPU. Это вывело возможности браузерной графики на новый уровень: современные игры, редакторы, 3D-визуализации — всё это работает на Canvas и WebGL.</p>
+
+                <hr class="my-4">
+
+                <h2 id="features" class="mb-3">Особенности</h2>
+                <p>Canvas — это не формат файла, а <strong>область для рисования</strong>. Внутри неё нет DOM-элементов: ни отдельных пикселей, ни линий, ни фигур. Есть только пиксели, которые скрипт перерисовывает каждый кадр. Это принципиальное отличие от SVG и других технологий.</p>
+                <p>Ключевые характеристики:</p>
+                <ul>
+                    <li><strong>Программная отрисовка</strong> — изображение полностью создаётся кодом на JavaScript.</li>
+                    <li><strong>Растровый холст</strong> — внутри Canvas хранятся пиксели, а не векторы. При масштабировании картинка становится размытой.</li>
+                    <li><strong>2D-контекст</strong> — рисование фигур, линий, текста, работа с изображениями, фильтрами и трансформациями.</li>
+                    <li><strong>WebGL (3D)</strong> — поддержка трёхмерной графики, использующей возможности видеокарты.</li>
+                    <li><strong>Анимация в реальном времени</strong> — Canvas перерисовывается десятки раз в секунду, что позволяет создавать плавные анимации и игры.</li>
+                    <li><strong>Не индексируется поисковиками</strong> — текст, нарисованный на холсте, невидим для роботов и скринридеров.</li>
+                </ul>
+                <p>Главное преимущество Canvas — гибкость. Можно нарисовать что угодно и менять это на лету. Главный минус — сложность: без программирования Canvas бесполезен, а производительность зависит от оптимизации кода.</p>
+
+                <hr class="my-4">
+
+                <h2 id="usage" class="mb-3">Применение</h2>
+                <p>Canvas используется везде, где нужна динамическая или интерактивная графика. Основные сценарии:</p>
+                <ul>
+                    <li><strong>Игры в браузере</strong> — Canvas и WebGL стали основой для веб-игр без плагинов.</li>
+                    <li><strong>Визуализации данных</strong> — графики, диаграммы, интерактивные карты, научные симуляции.</li>
+                    <li><strong>Редакторы графики</strong> — онлайн-фоторедакторы, инструменты для рисования, Figma, Canva.</li>
+                    <li><strong>Анимации и эффекты</strong> — частицы, фейерверки, интерактивные фоны.</li>
+                    <li><strong>Обработка изображений</strong> — фильтры, изменение размера, наложение эффектов прямо в браузере.</li>
+                    <li><strong>3D-визуализации</strong> — через WebGL: трёхмерные модели, конфигураторы товаров, VR-сцены.</li>
+                </ul>
+                <p>Пример на этой странице — живая анимация частиц. Она рисуется Canvas прямо в браузере, каждый кадр с нуля, 60 раз в секунду. Это классический пример того, для чего Canvas создавался.</p>
+
+                <hr class="my-4">
+
+                <h2 id="examples" class="mb-3">Примеры</h2>
+                <p>Ниже — живое демо. Частицы двигаются, отскакивают от стенок, а когда сближаются — соединяются линиями. Всё это рисуется на Canvas в реальном времени, без единой картинки и без SVG.</p>
+
+                <canvas id="canvasPageDemo" width="800" height="800"
+                        class="rounded border d-block mx-auto"
+                        style="max-width: 400px; width: 100%; height: auto;"
+                        aria-label="Анимация частиц на Canvas"></canvas>
+
+                <p class="text-body-secondary small text-center mt-2">Живое демо на Canvas: 50 частиц с линиями соединения</p>
+
+                <p class="mt-4">Каждый кадр Canvas полностью очищается и перерисовывается заново. Если остановить скрипт — на холсте останется последний кадр, который уже не меняется. В этом принципиальное отличие от SVG: там элементы существуют постоянно, а здесь есть только пиксели, которые обновляются по команде кода.</p>
+
+                <hr class="my-4">
+
+                <p>Canvas — мощный инструмент для динамической графики. Он не заменяет SVG или растровые форматы — у каждого своя задача. Canvas незаменим там, где нужна анимация в реальном времени, интерактивность и полный контроль над каждым пикселем. Для иконок и схем лучше SVG, для фотографий — JPEG и WebP, а для игр, визуализаций и редакторов — Canvas.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#features">Особенности</a>
+                        <a class="nav-link" href="#usage">Применение</a>
+                        <a class="nav-link" href="#examples">Примеры</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank" rel="noopener">MDN — Canvas API</a></li>
+                        <li><a class="nav-link" href="https://html.spec.whatwg.org/multipage/canvas.html" target="_blank" rel="noopener">HTML Living Standard — Canvas</a></li>
+                        <li><a class="nav-link" href="https://caniuse.com/canvas" target="_blank" rel="noopener">Can I Use — Canvas</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +121,35 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link active" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history" data-bs-dismiss="offcanvas">История</a>
+                <a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Особенности</a>
+                <a class="nav-link" href="#usage" data-bs-dismiss="offcanvas">Применение</a>
+                <a class="nav-link" href="#examples" data-bs-dismiss="offcanvas">Примеры</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/canvas-page.min.js"></script>
+    <script src="./scripts/mobile-nav.js"></script>
 </body>
 </html>

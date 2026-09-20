@@ -3,30 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>SVG — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
-                <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
+                <a href="./svg.html" class="link-primary text-decoration-none fw-bold">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>svg</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">SVG</h1>
+                <p>SVG — это векторный формат графики, который описывает изображение не пикселями, а математическими формулами: линиями, кривыми, фигурами. Именно поэтому SVG масштабируется без потери качества, весит мало и легко стилизуется через CSS. Это делает его основным инструментом для иконок, логотипов, схем и диаграмм в современном вебе.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>SVG расшифровывается как <strong>Scalable Vector Graphics</strong> — «масштабируемая векторная графика». Формат был разработан консорциумом W3C в конце 1990-х. Первая версия спецификации — SVG 1.0 — вышла в 2001 году, а рекомендацией W3C стала в 2003-м.</p>
+                <p>Изначально SVG задумывался как открытая альтернатива проприетарным векторным форматам вроде Flash. Но массовое распространение он получил позже — когда в 2010-х браузеры научились работать с ним так же хорошо, как с обычными картинками. Особенно помог отказ Adobe от Flash в 2020 году: многие задачи, которые решал Flash, перешли к SVG и Canvas.</p>
+                <p>В 2016 году вышла версия SVG 2 — с упрощённым синтаксисом, улучшенной поддержкой CSS и новыми возможностями. Сегодня SVG — стандарт де-факто для векторной графики в вебе.</p>
+
+                <hr class="my-4">
+
+                <h2 id="features" class="mb-3">Особенности</h2>
+                <p>Главное отличие SVG от растровых форматов — способ хранения. Растр хранит сетку пикселей, SVG хранит <strong>инструкции по рисованию</strong>. Это как чертёж вместо фотографии: по чертежу можно построить что угодно и в любом масштабе, и результат всегда будет точным.</p>
+                <p>Ключевые характеристики:</p>
+                <ul>
+                    <li><strong>Векторный формат</strong> — изображение описывается математически, а не пикселями. Идеально масштабируется без потерь.</li>
+                    <li><strong>XML-формат</strong> — это текстовый файл. Его можно открыть в блокноте, прочитать, отредактировать.</li>
+                    <li><strong>Малый вес</strong> — иконка может весить несколько килобайт вместо десятков в PNG.</li>
+                    <li><strong>Стилизация через CSS</strong> — можно менять цвет, толщину линий, заливку прямо в CSS, как у обычных HTML-элементов.</li>
+                    <li><strong>Анимация</strong> — поддерживает как CSS-анимации, так и встроенный язык SMIL.</li>
+                    <li><strong>Доступность и SEO</strong> — текст внутри SVG читается поисковиками и скринридерами.</li>
+                </ul>
+                <p>Единственное ограничение — SVG плохо подходит для фотографий и сложных растровых изображений. Вектор не передаст тонкие переходы цвета и текстуры. Для этого нужны JPEG, WebP или PNG.</p>
+
+                <hr class="my-4">
+
+                <h2 id="usage" class="mb-3">Применение</h2>
+                <p>SVG используется везде, где нужна чёткая графика на любом масштабе. Основные сценарии:</p>
+                <ul>
+                    <li><strong>Иконки и логотипы</strong> — главный сценарий. Чёткие на любом экране, легко перекрашиваются.</li>
+                    <li><strong>Схемы, диаграммы, графики</strong> — точные линии, точные цвета, можно менять данные программно.</li>
+                    <li><strong>Инфографика и карты</strong> — вектор не «мылится» при зуме, работает с любыми масштабами.</li>
+                    <li><strong>Анимации и интерактив</strong> — CSS и SMIL позволяют создавать сложные эффекты без JS.</li>
+                    <li><strong>Иллюстрации</strong> — стилизованные рисунки с плоскими цветами и чёткими контурами.</li>
+                </ul>
+                <p>Особенно часто SVG используют в интерфейсах: иконки в меню, логотипы в шапке, схемы в документации — всё это почти всегда SVG. На этом сайте, например, логотип в шапке — тоже SVG.</p>
+
+                <hr class="my-4">
+
+                <h2 id="examples" class="mb-3">Примеры</h2>
+                <p>Ниже представлено изображение бабочки в SVG. Его можно увеличить в 10 раз, и он останется идеально чётким, потому что не состоит из пикселей.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <img src="./images/svg-example.svg"
+                         alt="Пример SVG-графики: бабочка из векторов"
+                         title="SVG: бабочка из векторов"
+                         class="img-fluid specific-w-100 rounded"
+                         loading="lazy"
+                         width="800" height="800">
+                        <p class="text-body-secondary small mb-0">SVG: бабочка из векторов, масштабируется без потерь</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/svg-example.svg"
+                             alt="Тот же SVG, увеличенный"
+                             title="Тот же SVG, но крупнее"
+                             class="img-fluid specific-w-200 rounded"
+                             loading="lazy"
+                             width="800" height="800">
+                        <p class="text-body-secondary small mb-0">Тот же файл, но крупнее — никакой потери качества</p>
+                    </div>
+                </div>
+
+                <p class="mt-4">Слева и справа — <strong>один и тот же файл</strong>. Просто отображается в разном размере. Растровая картинка при увеличении стала бы размытой, а SVG остаётся идеально чётким при любом масштабе. Это и есть главное преимущество векторного формата.</p>
+
+                <p>Ещё одна особенность SVG — его можно вставлять прямо в HTML как код. Тогда картинка становится частью страницы, и её цвет, размер, положение можно менять через CSS, как у обычного элемента. Это невозможно ни с JPEG, ни с PNG.</p>
+
+                <hr class="my-4">
+
+                <p>SVG — основной формат для векторной графики в вебе. Он сочетает в себе лёгкость, масштабируемость и гибкость. Для иконок, логотипов и схем это лучший выбор. Растровые форматы (JPEG, PNG, WebP) остаются незаменимыми для фотографий, но там, где нужна чёткая графика на любом экране, побеждает SVG.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#features">Особенности</a>
+                        <a class="nav-link" href="#usage">Применение</a>
+                        <a class="nav-link" href="#examples">Примеры</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noopener">MDN — SVG</a></li>
+                        <li><a class="nav-link" href="https://www.w3.org/TR/SVG2/" target="_blank" rel="noopener">W3C — спецификация SVG</a></li>
+                        <li><a class="nav-link" href="https://caniuse.com/svg" target="_blank" rel="noopener">Can I Use — SVG</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +136,34 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link" href="./raster.html">Растр</a>
+                <a class="nav-link active" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history">История</a>
+                <a class="nav-link" href="#features">Особенности</a>
+                <a class="nav-link" href="#usage">Применение</a>
+                <a class="nav-link" href="#examples">Примеры</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/mobile-nav.js"></script>
 </body>
 </html>

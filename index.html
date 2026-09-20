@@ -53,8 +53,7 @@
                                  sizes="(max-width: 768px) 100vw, 280px"
                                  alt="Пример растровой графики"
                                  title="Растровая графика: пример фотографии"
-                                 class="img-fluid rounded"
-                                 style="max-width: 280px;"
+                                 class="img-fluid specific-w-300 rounded"
                                  loading="lazy"
                                  width="1280" height="1392">
                         </div>
@@ -69,8 +68,7 @@
                             <img src="./images/svg-thumb.svg"
                              alt="Пример SVG-графики"
                              title="Векторная графика: пример логотипа"
-                             class="img-fluid"
-                             style="max-width: 280px;"
+                             class="img-fluid specific-w-300 rounded"
                              loading="lazy"
                              width="300" height="300">
                         </div>
@@ -82,7 +80,9 @@
                             <a href="./canvas.html" class="link-primary text-decoration-none">Подробнее про Canvas →</a>
                         </div>
                         <div class="col-md-5">
-                            <canvas id="canvasDemo" width="280" height="280" class="rounded border"></canvas>
+                            <canvas id="canvasDemo" width="280" height="280"
+                            class="rounded border d-block"
+                            style="max-width: 280px; width: 100%; height: auto;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -198,5 +198,6 @@
 
     <script src="./scripts/bootstrap.bundle.min.js"></script>
     <script src="./scripts/canvas-demo.min.js"></script>
+    <script src="./scripts/mobile-nav.js"></script>
 </body>
 </html>
