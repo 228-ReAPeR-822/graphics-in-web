@@ -3,30 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>Растровая графика — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
-                <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
+                <a href="./raster.html" class="link-primary text-decoration-none fw-bold">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>raster</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">Растровая графика</h1>
+                <p>Растровая графика — самый старый и самый распространённый тип изображений в вебе. Она лежит в основе фотографий, скриншотов, сложных иллюстраций и практически любого контента, где важна точная передача цвета. Разберём, откуда она взялась, какие форматы существуют и как выбрать подходящий.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>Растровое представление изображений появилось задолго до веба. Ещё в 1960-х годах в NASA и научных лабораториях использовали сетки пикселей для обработки снимков со спутников и телескопов. Сам термин «bitmap» (битовая карта) — то есть карта из битов — закрепился в 1970-х, когда появились первые графические дисплеи.</p>
+                <p>В веб растровая графика пришла в начале 1990-х вместе с первыми браузерами. Первым массовым форматом стал <strong>GIF</strong> — его поддерживал ещё Mosaic в 1993 году. Чуть позже появился <strong>JPEG</strong>, который позволял хранить фотографии в приемлемом качестве и весе. В 1996-м к ним добавился <strong>PNG</strong> — как ответ на патентные ограничения GIF. А в 2010 году Google представил <strong>WebP</strong> — формат, объединивший сильные стороны предыдущих и ставший современным стандартом.</p>
+
+                <hr class="my-4">
+
+                <h2 id="formats" class="mb-3">Форматы</h2>
+                <p>За всю историю веба сложилось четыре основных растровых формата. У каждого — свои сильные стороны и своя ниша. Разберём каждый подробнее на отдельной странице.</p>
+
+                <div class="d-flex flex-column gap-4">
+
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">JPEG</h3>
+                            <p class="mb-3">Формат с сжатием с потерями. Идеален для фотографий и сложных изображений с плавными переходами цвета. Поддерживает миллионы оттенков, но не умеет прозрачность.</p>
+                            <a href="./jpg.html" class="link-primary text-decoration-none">Подробнее про JPEG →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="./images/jpg-thumb-800.jpg"
+                                 srcset="./images/jpg-thumb-400.jpg 400w,
+                                         ./images/jpg-thumb-800.jpg 800w"
+                                 sizes="(max-width: 768px) 100vw, 280px"
+                                 alt="Пример изображения в формате JPEG"
+                                 title="JPEG: пример фотографии"
+                                 class="img-fluid rounded"
+                                 style="max-width: 280px;"
+                                 loading="lazy"
+                                 width="800" height="450">
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">PNG</h3>
+                            <p class="mb-3">Формат с сжатием без потерь и поддержкой прозрачности. Отлично подходит для скриншотов, интерфейсных элементов, логотипов и изображений с чёткими краями.</p>
+                            <a href="./png.html" class="link-primary text-decoration-none">Подробнее про PNG →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="./images/png-thumb-800.png"
+                                 srcset="./images/png-thumb-400.png 400w,
+                                         ./images/png-thumb-800.png 800w"
+                                 sizes="(max-width: 768px) 100vw, 280px"
+                                 alt="Пример изображения в формате PNG"
+                                 title="PNG: прозрачность и чёткие края"
+                                 class="img-fluid rounded"
+                                 style="max-width: 280px;"
+                                 loading="lazy"
+                                 width="800" height="800">
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">GIF</h3>
+                            <p class="mb-3">Старейший формат в вебе. Ограничен 256 цветами, но умеет простую анимацию и прозрачность. До сих пор используется для коротких зацикленных роликов.</p>
+                            <a href="./gif.html" class="link-primary text-decoration-none">Подробнее про GIF →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="./images/gif-thumb-498.gif"
+                             alt="Пример изображения в формате GIF"
+                             title="GIF: ограниченная палитра, 256 цветов"
+                             class="img-fluid rounded"
+                             style="max-width: 280px;"
+                             loading="lazy"
+                             width="498" height="280">
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-7">
+                            <h3 class="h4 mb-2">WebP</h3>
+                            <p class="mb-3">Современный формат от Google. Поддерживает и сжатие с потерями, и без, и прозрачность, и анимацию — всё в одном. В среднем на 25–35% легче JPEG и PNG при том же качестве.</p>
+                            <a href="./webp.html" class="link-primary text-decoration-none">Подробнее про WebP →</a>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="./images/webp-thumb-800.webp"
+                                 srcset="./images/webp-thumb-400.webp 400w,
+                                         ./images/webp-thumb-800.webp 800w"
+                                 sizes="(max-width: 768px) 100vw, 280px"
+                                 alt="Пример изображения в формате WebP"
+                                 title="WebP: современный универсальный формат"
+                                 class="img-fluid rounded"
+                                 style="max-width: 280px;"
+                                 loading="lazy"
+                                 width="800" height="534">
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr class="my-4">
+
+                <h2 id="comparison" class="mb-3">Сравнение форматов</h2>
+                <p>Таблица ниже помогает быстро понять, чем отличаются форматы и какой выбрать под конкретную задачу.</p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <caption>Сравнение растровых форматов веб-графики</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Формат</th>
+                                <th scope="col">Сжатие</th>
+                                <th scope="col">Прозрачность</th>
+                                <th scope="col">Анимация</th>
+                                <th scope="col">Когда использовать</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">JPEG</th>
+                                <td>С потерями</td>
+                                <td>Нет</td>
+                                <td>Нет</td>
+                                <td>Фотографии, сложные изображения с плавными переходами цвета</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">PNG</th>
+                                <td>Без потерь</td>
+                                <td>Да</td>
+                                <td>Нет</td>
+                                <td>Скриншоты, логотипы, интерфейсные элементы</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">GIF</th>
+                                <td>Без потерь (256 цветов)</td>
+                                <td>Да</td>
+                                <td>Да</td>
+                                <td>Простые анимации, короткие зацикленные ролики</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">WebP</th>
+                                <td>С потерями и без</td>
+                                <td>Да</td>
+                                <td>Да</td>
+                                <td>Универсальная замена всем остальным форматам</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="my-4">
+
+                <p>Каждый формат решает свою задачу, и на практике они часто используются вместе. На современном сайте можно встретить JPEG для старых браузеров, WebP для современных и PNG для логотипов — и всё это на одной странице.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#formats">Форматы</a>
+                        <a class="nav-link" href="#comparison">Сравнение</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types" target="_blank" rel="noopener">MDN — форматы изображений</a></li>
+                        <li><a class="nav-link" href="https://squoosh.app" target="_blank" rel="noopener">Squoosh</a></li>
+                        <li><a class="nav-link" href="https://tinypng.com" target="_blank" rel="noopener">TinyPNG</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +211,32 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link active" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history" data-bs-dismiss="offcanvas">История</a>
+                <a class="nav-link" href="#formats" data-bs-dismiss="offcanvas">Форматы</a>
+                <a class="nav-link" href="#comparison" data-bs-dismiss="offcanvas">Сравнение</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

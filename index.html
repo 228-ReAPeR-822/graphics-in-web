@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <title>Графика в Web — учебный проект</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
@@ -10,11 +11,12 @@
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
         <div class="container-fluid d-flex justify-content-between align-items-center px-3">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
             <nav class="d-none d-md-flex gap-3">
-                <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
+                <a href="./index.html" class="link-primary text-decoration-none fw-bold">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
@@ -50,6 +52,7 @@
                                          ./images/raster-thumb-1280.webp 1280w"
                                  sizes="(max-width: 768px) 100vw, 280px"
                                  alt="Пример растровой графики"
+                                 title="Растровая графика: пример фотографии"
                                  class="img-fluid rounded"
                                  style="max-width: 280px;"
                                  loading="lazy"
@@ -65,6 +68,7 @@
                         <div class="col-md-5">
                             <img src="./images/svg-thumb.svg"
                              alt="Пример SVG-графики"
+                             title="Векторная графика: пример логотипа"
                              class="img-fluid"
                              style="max-width: 280px;"
                              loading="lazy"
@@ -136,7 +140,7 @@
             <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
                 <div class="position-sticky top-0 p-3">
                     <nav class="nav flex-column">
-                        <h6 class="text-body-secondary mb-2">На этой странице</h6>
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
                         <a class="nav-link" href="#about">Что это такое</a>
                         <a class="nav-link" href="#methods">Методы графики</a>
                         <a class="nav-link" href="#comparison">Сравнение</a>
@@ -145,7 +149,7 @@
 
                     <hr class="my-3">
 
-                    <h6 class="text-body-secondary mb-2">Полезные ссылки</h6>
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
                     <ul class="nav flex-column">
                         <li><a class="nav-link" href="https://developer.mozilla.org/ru/docs/Web" target="_blank" rel="noopener">MDN Web Docs</a></li>
                         <li><a class="nav-link" href="https://caniuse.com" target="_blank" rel="noopener">Can I Use</a></li>
@@ -168,12 +172,12 @@
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Меню</h5>
+            <p class="h5 offcanvas-title">Меню</p>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
         </div>
         <div class="offcanvas-body">
             <nav class="nav flex-column">
-                <h6 class="text-body-secondary mb-2">Разделы</h6>
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
                 <a class="nav-link active" href="./index.html">Главная</a>
                 <a class="nav-link" href="./raster.html">Растр</a>
                 <a class="nav-link" href="./svg.html">SVG</a>
@@ -183,7 +187,7 @@
             <hr class="my-3">
 
             <nav class="nav flex-column">
-                <h6 class="text-body-secondary mb-2">На этой странице</h6>
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
                 <a class="nav-link" href="#about" data-bs-dismiss="offcanvas">Что это такое</a>
                 <a class="nav-link" href="#methods" data-bs-dismiss="offcanvas">Методы графики</a>
                 <a class="nav-link" href="#comparison" data-bs-dismiss="offcanvas">Сравнение</a>
