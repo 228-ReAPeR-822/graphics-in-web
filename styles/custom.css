@@ -1,7 +1,1 @@
-html {
-    scroll-behavior: smooth;
-}
-
-h2[id] {
-    scroll-margin-top: 20px;
-}
+html{scroll-behavior:smooth}h2[id]{scroll-margin-top:20px}
