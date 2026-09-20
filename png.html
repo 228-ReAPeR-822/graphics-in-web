@@ -3,30 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>PNG — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>png</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">PNG</h1>
+                <p>PNG — формат, созданный специально для веба. В отличие от JPEG, он сжимает изображения <strong>без потерь</strong> и поддерживает прозрачность. Именно поэтому PNG стал стандартом для логотипов, иконок, скриншотов и любых картинок, где важны чёткие края и точная передача цвета.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>PNG расшифровывается как <strong>Portable Network Graphics</strong>. Формат появился в 1995 году как ответ на патентные ограничения GIF. В то время компания Unisys владела патентом на алгоритм сжатия LZW, использовавшийся в GIF, и требовала отчислений от разработчиков, использовавших формат. Это создало серьёзную проблему для веба.</p>
+                <p>В ответ сообщество разработчиков во главе с Томасом Бутеллом создало новый формат — свободный от патентов, с лучшим сжатием и поддержкой большего количества цветов. Спецификация PNG 1.0 была опубликована в 1996 году, а в 2003-м формат стал международным стандартом ISO/IEC 15948.</p>
+                <p>Любопытная деталь: аббревиатура PNG читается как «пинг» (ping), а не «пи-эн-джи». Это закрепилось с самого начала — ещё в первых обсуждениях формата.</p>
+
+                <hr class="my-4">
+
+                <h2 id="features" class="mb-3">Особенности</h2>
+                <p>PNG — растровый формат со <strong>сжатием без потерь</strong>. Это значит, что при сохранении сохраняется каждый пиксель исходного изображения. Никаких артефактов, никаких «квадратиков». Но за это приходится платить размером файла: PNG обычно в 2–5 раз тяжелее JPEG при том же разрешении.</p>
+                <p>Ключевые характеристики:</p>
+                <ul>
+                    <li><strong>Сжатие без потерь</strong> — качество не ухудшается при сохранении, можно редактировать и пересохранять сколько угодно раз.</li>
+                    <li><strong>Прозрачность</strong> — поддерживает альфа-канал. Можно делать плавные переходы от непрозрачного к полностью прозрачному.</li>
+                    <li><strong>Миллионы цветов</strong> — 24-битный цвет, как у JPEG, и даже 48-битный для профессиональных задач.</li>
+                    <li><strong>Чёткие края</strong> — идеален для текста, линий, иконок, интерфейсных элементов.</li>
+                    <li><strong>Нет анимации</strong> — в базовом стандарте. Существует расширение APNG, но оно поддерживается не везде.</li>
+                </ul>
+                <p>Главный минус — вес. Для фотографий PNG не подходит: файл получится огромным. Но там, где нужна точность и прозрачность, PNG незаменим.</p>
+
+                <hr class="my-4">
+
+                <h2 id="usage" class="mb-3">Применение</h2>
+                <p>PNG используется везде, где важны чёткие края и прозрачность. Основные сценарии:</p>
+                <ul>
+                    <li><strong>Логотипы и иконки</strong> — если по какой-то причине не подходит SVG. Чёткие края, прозрачный фон.</li>
+                    <li><strong>Скриншоты интерфейсов</strong> — текст и линии остаются идеально резкими.</li>
+                    <li><strong>Схемы, диаграммы, графики</strong> — точная передача линий и цветов.</li>
+                    <li><strong>Изображения с прозрачностью</strong> — вырезанные объекты, накладываемые на разные фоны.</li>
+                    <li><strong>Промежуточное хранение графики</strong> — рабочий формат для графических редакторов, потому что не теряет качество.</li>
+                </ul>
+                <p>Для фотографий PNG использовать не стоит — файлы получаются слишком тяжёлыми. В таких случаях лучше JPEG или WebP.</p>
+
+                <hr class="my-4">
+
+                <h2 id="examples" class="mb-3">Примеры</h2>
+                <p>Главное преимущество PNG — прозрачность. На шахматной подложке видно, что фон картинки действительно прозрачный, а не залит цветом.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="p-3 rounded" style="background: linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%), linear-gradient(45deg, #333 25%, #1a1a1a 25%, #1a1a1a 75%, #333 75%); background-size: 20px 20px; background-position: 0 0, 10px 10px;">
+                            <img src="./images/png-transparency-800.png"
+                                 alt="PNG с прозрачным фоном на шахматной подложке"
+                                 title="PNG: прозрачность сохраняется"
+                                 class="img-fluid mx-auto d-block"
+                                 style="max-width: 240px;"
+                                 loading="lazy"
+                                 width="800" height="966">
+                        </div>
+                        <p class="text-body-secondary small mt-2 mb-0">PNG: фон прозрачный, видна шахматная подложка</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 rounded bg-body-tertiary">
+                            <img src="./images/png-opaque-800.jpg"
+                                 alt="Тот же объект без прозрачности"
+                                 title="Изображение с залитым фоном"
+                                 class="img-fluid mx-auto d-block"
+                                 style="max-width: 240px;"
+                                 loading="lazy"
+                                 width="800" height="966">
+                        </div>
+                        <p class="text-body-secondary small mt-2 mb-0">Тот же объект с залитым фоном — так выглядит без прозрачности</p>
+                    </div>
+                </div>
+
+                <p class="mt-4">Шахматная подложка слева — стандартный способ показать прозрачность в графических редакторах. Так сразу видно: пиксели фона не залиты цветом, а отсутствуют. Именно это позволяет накладывать PNG-картинку на любой фон — тёмный, светлый, узорчатый.</p>
+
+                <hr class="my-4">
+
+                <p>PNG остаётся лучшим выбором для графики с чёткими краями и прозрачностью. Для фотографий он слишком тяжёлый, но в своей нише — логотипах, иконках, скриншотах, схемах — формат по-прежнему незаменим. В современном вебе его часто заменяет WebP или SVG, но PNG продолжает использоваться как универсальный и предсказуемый формат.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#features">Особенности</a>
+                        <a class="nav-link" href="#usage">Применение</a>
+                        <a class="nav-link" href="#examples">Примеры</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Другие форматы</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="./jpg.html">JPEG</a></li>
+                        <li><a class="nav-link" href="./gif.html">GIF</a></li>
+                        <li><a class="nav-link" href="./webp.html">WebP</a></li>
+                    </ul>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://ru.wikipedia.org/wiki/PNG" target="_blank" rel="noopener">Wikipedia — PNG</a></li>
+                        <li><a class="nav-link" href="https://www.w3.org/TR/png-3/" target="_blank" rel="noopener">W3C — спецификация PNG</a></li>
+                        <li><a class="nav-link" href="https://tinypng.com" target="_blank" rel="noopener">TinyPNG</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +148,43 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link active" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Форматы</p>
+                <a class="nav-link" href="./jpg.html">JPEG</a>
+                <a class="nav-link active" href="./png.html">PNG</a>
+                <a class="nav-link" href="./gif.html">GIF</a>
+                <a class="nav-link" href="./webp.html">WebP</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history" data-bs-dismiss="offcanvas">История</a>
+                <a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Особенности</a>
+                <a class="nav-link" href="#usage" data-bs-dismiss="offcanvas">Применение</a>
+                <a class="nav-link" href="#examples" data-bs-dismiss="offcanvas">Примеры</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

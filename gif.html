@@ -3,30 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>GIF — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>GIF</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">GIF</h1>
+                <p>GIF — старейший формат графики в вебе. Он появился ещё до того, как интернет стал массовым, и до сих пор не потерял актуальность. Его главное преимущество — анимация: GIF умеет хранить последовательность кадров в одном файле. Именно поэтому мемы, реакции, короткие зацикленные ролики — всё это GIF.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>GIF расшифровывается как <strong>Graphics Interchange Format</strong>. Формат разработала компания CompuServe в 1987 году — задолго до того, как появился современный веб. Изначально он использовался для обмена изображениями на BBS-системах (досках объявлений), где важна была компактность файла.</p>
+                <p>В 1989 году вышла вторая версия — GIF89a. Она добавила то, за что формат любят до сих пор: <strong>поддержку анимации</strong>, прозрачность и задержку между кадрами. Именно GIF89a используется сегодня, хотя стандарту уже больше 35 лет.</p>
+                <p>В 1990-х формат стал массовым в вебе — его поддерживали все браузеры. Но в 1994 году разразился «патентный скандал»: компания Unisys заявила права на алгоритм сжатия LZW, использовавшийся в GIF, и потребовала отчислений. Это подтолкнуло сообщество к созданию свободного формата PNG.</p>
+
+                <hr class="my-4">
+
+                <h2 id="features" class="mb-3">Особенности</h2>
+                <p>GIF — растровый формат, но с рядом ограничений, унаследованных от старых технологий. Главное из них — <strong>палитра всего 256 цветов</strong>. Это значит, что плавные градиенты на GIF превращаются в «ступеньки», а фотографии выглядят бледно и неточно.</p>
+                <p>Ключевые характеристики:</p>
+                <ul>
+                    <li><strong>Максимум 256 цветов</strong> — мало по современным меркам. Фотографии в GIF выглядят «плакатно».</li>
+                    <li><strong>Сжатие без потерь</strong> — но только в пределах 256 цветов.</li>
+                    <li><strong>Анимация</strong> — формат хранит несколько кадров и воспроизводит их в цикле. Это и сделало GIF популярным.</li>
+                    <li><strong>Прозрачность</strong> — есть, но только бинарная: либо пиксель полностью прозрачный, либо нет. Полупрозрачности нет.</li>
+                    <li><strong>Нет звука</strong> — только изображение.</li>
+                </ul>
+                <p>Из-за ограничения в 256 цветов GIF плохо подходит для фотографий, но отлично работает для пиксель-арта, простых иконок и графики с небольшим количеством оттенков.</p>
+
+                <hr class="my-4">
+
+                <h2 id="usage" class="mb-3">Применение</h2>
+                <p>GIF давно бы вышел из моды, если бы не одно: <strong>он один из немногих форматов с нативной поддержкой анимации</strong>, который работает везде без скриптов. Это и определило его ниши:</p>
+                <ul>
+                    <li><strong>Мемы и реакции</strong> — короткие зацикленные ролики в соцсетях, мессенджерах, на форумах.</li>
+                    <li><strong>Простые анимации в интерфейсе</strong> — индикаторы загрузки, маленькие иллюстрации.</li>
+                    <li><strong>Демонстрации</strong> — показать работу функции, шаги инструкции.</li>
+                    <li><strong>Пиксель-арт и ретро-графика</strong> — тут ограниченная палитра даже в плюс.</li>
+                    <li><strong>Стикеры в Telegram и соцсетях</strong> — GIF и анимированные стикеры рядом.</li>
+                </ul>
+                <p>Для фотографий и больших анимаций GIF уже устарел. На смену ему пришли анимированный WebP, APNG и короткие видео (MP4). Они в разы легче при том же качестве.</p>
+
+                <hr class="my-4">
+
+                <h2 id="examples" class="mb-3">Примеры</h2>
+                <p>GIF хорош для коротких зацикленных анимаций с небольшим количеством цветов. Классический пример — пиксельная анимация.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <img src="./images/gif-demo.gif"
+                             alt="Пример анимированного GIF"
+                             title="GIF-анимация в цикле"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="640" height="640">
+                        <p class="text-body-secondary small mb-0">GIF-анимация, 256 цветов — зацикливается бесконечно</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/gif-static.gif"
+                             alt="Статичный кадр из той же анимации"
+                             title="Первый кадр анимации"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="640" height="640">
+                        <p class="text-body-secondary small mb-0">Тот же кадр в статике для сравнения</p>
+                    </div>
+                </div>
+
+                <p class="mt-4">Современные аналоги GIF — <strong>анимированный WebP</strong> и <strong>APNG</strong> — позволяют хранить миллионы цветов, весят в разы меньше и работают во всех актуальных браузерах. Но GIF остаётся самым совместимым форматом: он отображается везде, где вообще отображается графика.</p>
+
+                <hr class="my-4">
+
+                <p>GIF — пример технологии, которая пережила своё время. Формат устарел технически, но занял уникальную нишу, из которой его не вытеснили ни PNG, ни WebP, ни видео. Пока в интернете существуют мемы и реакции, GIF будет жить.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#features">Особенности</a>
+                        <a class="nav-link" href="#usage">Применение</a>
+                        <a class="nav-link" href="#examples">Примеры</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Другие форматы</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="./jpg.html">JPEG</a></li>
+                        <li><a class="nav-link" href="./png.html">PNG</a></li>
+                        <li><a class="nav-link" href="./webp.html">WebP</a></li>
+                    </ul>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://ru.wikipedia.org/wiki/GIF" target="_blank" rel="noopener">Wikipedia — GIF</a></li>
+                        <li><a class="nav-link" href="https://ezgif.com" target="_blank" rel="noopener">Ezgif</a></li>
+                        <li><a class="nav-link" href="https://tenor.com/ru/" target="_blank" rel="noopener">Tenor</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +142,43 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link active" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Форматы</p>
+                <a class="nav-link" href="./jpg.html">JPEG</a>
+                <a class="nav-link" href="./png.html">PNG</a>
+                <a class="nav-link active" href="./gif.html">GIF</a>
+                <a class="nav-link" href="./webp.html">WebP</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history" data-bs-dismiss="offcanvas">История</a>
+                <a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Особенности</a>
+                <a class="nav-link" href="#usage" data-bs-dismiss="offcanvas">Применение</a>
+                <a class="nav-link" href="#examples" data-bs-dismiss="offcanvas">Примеры</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

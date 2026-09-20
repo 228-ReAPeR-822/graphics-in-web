@@ -3,30 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>WebP — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>webp</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">WebP</h1>
+                <p>WebP — современный растровый формат, разработанный Google. Его главная идея — объединить всё лучшее от предыдущих форматов: сжатие с потерями как у JPEG, поддержку прозрачности как у PNG, анимацию как у GIF. И при этом — в разы меньший вес файлов. Сегодня WebP активно вытесняет старые форматы в вебе.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>WebP был представлен компанией Google в 2010 году. В основе формата лежит технология сжатия <strong>VP8</strong> — видеокодек, который Google приобрела вместе с компанией On2 Technologies. Идея была простая: применить видеокодек к статичным изображениям, чтобы получить более эффективное сжатие, чем у JPEG.</p>
+                <p>Первая версия поддерживала только сжатие с потерями и прозрачность. В 2011 году добавилась поддержка <strong>анимации</strong> — прямой конкурент GIF. А в 2012-м появилось сжатие <strong>без потерь</strong> — то, что было у PNG.</p>
+                <p>Долгое время WebP поддерживался только в Chrome. Но постепенно его добавили Firefox (2019), Safari (2020) и Edge. К 2021 году поддержка стала практически повсеместной — и WebP начал массово использоваться в вебе.</p>
+
+                <hr class="my-4">
+
+                <h2 id="features" class="mb-3">Особенности</h2>
+                <p>WebP — универсальный формат. Он умеет всё то же, что JPEG, PNG и GIF вместе взятые, но при меньшем размере файла. Это делает его идеальным выбором для современного веба.</p>
+                <p>Ключевые характеристики:</p>
+                <ul>
+                    <li><strong>Сжатие с потерями и без</strong> — можно выбрать подходящий режим под конкретную задачу.</li>
+                    <li><strong>Прозрачность</strong> — поддерживает полноценный альфа-канал, как PNG. Полупрозрачность тоже есть.</li>
+                    <li><strong>Анимация</strong> — как у GIF, но с миллионами цветов и меньшим весом.</li>
+                    <li><strong>Вес на 25–35% меньше</strong> — при том же визуальном качестве, чем JPEG. А по сравнению с PNG — иногда в 10 раз.</li>
+                    <li><strong>Совместимость с браузерами</strong> — 95%+ актуальных браузеров.</li>
+                </ul>
+                <p>Единственный минус — некоторая «молодость»: очень старые браузеры (IE 11, Safari до 14-й версии) WebP не поддерживают. Для таких случаев на сайте оставляют фолбэк через JPEG или PNG.</p>
+
+                <hr class="my-4">
+
+                <h2 id="usage" class="mb-3">Применение</h2>
+                <p>WebP используется везде, где раньше применяли JPEG, PNG или GIF. Список сценариев буквально совпадает:</p>
+                <ul>
+                    <li><strong>Фотографии</strong> — как альтернатива JPEG. Меньше вес при том же качестве.</li>
+                    <li><strong>Логотипы и иконки</strong> — как альтернатива PNG с прозрачностью.</li>
+                    <li><strong>Анимации</strong> — как альтернатива GIF. В разы легче и качественнее.</li>
+                    <li><strong>Скриншоты интерфейсов</strong> — с чёткими краями и малым весом.</li>
+                    <li><strong>Фоны, баннеры, галереи</strong> — везде, где важна скорость загрузки.</li>
+                </ul>
+                <p>На крупных сайтах WebP используют в паре с JPEG через тег <code>&lt;picture&gt;</code>: современные браузеры получают WebP, старые — JPEG. Так обеспечивается и качество, и совместимость.</p>
+
+                <hr class="my-4">
+
+                <h2 id="examples" class="mb-3">Примеры</h2>
+                <p>Наглядный пример — одна и та же фотография в JPEG и WebP с одинаковым качеством. Визуально они неотличимы, но вес файлов отличается заметно.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <img src="./images/webp-compare-jpg.jpg"
+                             alt="Фотография в формате JPEG"
+                             title="JPEG: качество 90"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="600" height="450">
+                        <p class="text-body-secondary small mb-0">JPEG, качество 90<br><span class="text-body-emphasis">Примерно 139 КБ</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/webp-compare-webp.webp"
+                             alt="Та же фотография в формате WebP"
+                             title="WebP: качество 90"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="600" height="450">
+                        <p class="text-body-secondary small mb-0">WebP, качество 90<br><span class="text-success">Примерно 108 КБ</span></p>
+                    </div>
+                </div>
+
+                <p class="mt-4">Разница в весе особенно заметна на больших изображениях. Если сайт показывает десятки фотографий, переход на WebP экономит мегабайты трафика — и ускоряет загрузку страниц в разы. Именно поэтому крупные сервисы (YouTube, Facebook, Google Images) давно используют WebP по умолчанию.</p>
+
+                <hr class="my-4">
+
+                <p>WebP — пример того, как новый формат постепенно вытесняет старые. За 10 лет он прошёл путь от эксперимента Google до стандарта современного веба. Уже сейчас его поддерживают практически все браузеры, а на смену ему идёт ещё более эффективный AVIF. Но пока WebP остаётся оптимальным балансом качества, веса и совместимости.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#features">Особенности</a>
+                        <a class="nav-link" href="#usage">Применение</a>
+                        <a class="nav-link" href="#examples">Примеры</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Другие форматы</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="./jpg.html">JPEG</a></li>
+                        <li><a class="nav-link" href="./png.html">PNG</a></li>
+                        <li><a class="nav-link" href="./gif.html">GIF</a></li>
+                    </ul>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://developers.google.com/speed/webp" target="_blank" rel="noopener">Google — WebP</a></li>
+                        <li><a class="nav-link" href="https://ru.wikipedia.org/wiki/WebP" target="_blank" rel="noopener">Wikipedia — WebP</a></li>
+                        <li><a class="nav-link" href="https://squoosh.app" target="_blank" rel="noopener">Squoosh</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +142,43 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link active" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Форматы</p>
+                <a class="nav-link" href="./jpg.html">JPEG</a>
+                <a class="nav-link" href="./png.html">PNG</a>
+                <a class="nav-link" href="./gif.html">GIF</a>
+                <a class="nav-link active" href="./webp.html">WebP</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history" data-bs-dismiss="offcanvas">История</a>
+                <a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Особенности</a>
+                <a class="nav-link" href="#usage" data-bs-dismiss="offcanvas">Применение</a>
+                <a class="nav-link" href="#examples" data-bs-dismiss="offcanvas">Примеры</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

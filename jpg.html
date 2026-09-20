@@ -3,30 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Графика в Web — учебный проект</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <title>JPEG — Графика в Web</title>
     <link rel="stylesheet" href="./styles/halfmoon.min.css">
     <link rel="stylesheet" href="./styles/custom.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header class="py-3 border-bottom">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="./index.html" class="h4 text-decoration-none text-body-emphasis mb-0">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3">
+            <a href="./index.html" class="h4 d-flex align-items-center gap-2 text-decoration-none text-body-emphasis mb-0">
+                <img src="./images/icon.svg" alt="" width="32" height="32">
                 Графика в Web
             </a>
-            <nav class="d-flex gap-3">
+            <nav class="d-none d-md-flex gap-3">
                 <a href="./index.html" class="link-primary text-decoration-none">Главная</a>
                 <a href="./raster.html" class="link-primary text-decoration-none">Растр</a>
                 <a href="./svg.html" class="link-primary text-decoration-none">SVG</a>
                 <a href="./canvas.html" class="link-primary text-decoration-none">Canvas</a>
             </nav>
+            <button class="btn btn-secondary d-md-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+                    aria-label="Открыть меню">☰</button>
         </div>
     </header>
 
-    <main class="container py-5 flex-grow-1">
-        <p>jpg</p>
-        <hr>
+    <div class="container-fluid flex-grow-1 d-flex flex-column p-0">
+        <div class="row g-0 flex-grow-1">
 
-    </main>
+            <main class="col-12 col-md-9 col-lg-10 py-4 px-4">
+                <h1 class="mb-3">JPEG</h1>
+                <p>JPEG — самый распространённый формат для фотографий в интернете. Его используют везде: от галерей и интернет-магазинов до соцсетей и новостных сайтов. Формат умеет сильно сжимать изображения, жертвуя частью качества, но результат остаётся визуально приемлемым. Именно это сделало JPEG стандартом де-факто для фотоконтента в вебе.</p>
+
+                <hr class="my-4">
+
+                <h2 id="history" class="mb-3">История</h2>
+                <p>Формат был разработан в конце 1980-х группой экспертов под названием <strong>Joint Photographic Experts Group</strong> — от её аббревиатуры и произошло название. Первая версия стандарта вышла в 1992 году, а через два года была официально принята как международный стандарт ISO/IEC 10918.</p>
+                <p>В 1993 году JPEG начал использоваться в браузере NCSA Mosaic — одном из первых графических браузеров. С этого момента формат стал массовым. Особенно он пригодился с приходом цифровых фотоаппаратов в конце 1990-х: JPEG позволял хранить фотографии высокого разрешения на небольших по тем временам носителях.</p>
+                <p>С тех пор формат практически не менялся. Появлялись новые инструменты сжатия, но сам стандарт остаётся тем же уже более 30 лет — редкость для веб-технологий.</p>
+
+                <hr class="my-4">
+
+                <h2 id="features" class="mb-3">Особенности</h2>
+                <p>JPEG — это растровый формат со <strong>сжатием с потерями</strong>. При сохранении часть информации безвозвратно удаляется, но так, чтобы человеческий глаз этого не замечал. Отсюда и главное преимущество: файлы получаются в разы легче, чем PNG или другие форматы без потерь.</p>
+                <p>Ключевые характеристики:</p>
+                <ul>
+                    <li><strong>Миллионы цветов</strong> — 24-битный цвет, около 16,7 миллионов оттенков. Идеально для фотографий.</li>
+                    <li><strong>Регулируемое качество</strong> — можно сохранять от 0% до 100%. Чем ниже качество, тем меньше файл, но заметнее артефакты.</li>
+                    <li><strong>Нет прозрачности</strong> — формат не поддерживает альфа-канал. Прозрачные области становятся белыми или чёрными.</li>
+                    <li><strong>Нет анимации</strong> — только один статичный кадр.</li>
+                    <li><strong>Прогрессивная загрузка</strong> — можно сохранить изображение так, что оно будет загружаться сверху вниз, постепенно уточняясь.</li>
+                </ul>
+                <p>Главный минус — артефакты при сильном сжатии. Вокруг контрастных краёв появляются «ореолы», а гладкие области становятся «квадратными». Это цена за компактность.</p>
+
+                <hr class="my-4">
+
+                <h2 id="usage" class="mb-3">Применение</h2>
+                <p>JPEG применяется везде, где есть фотоконтент. Основные сценарии:</p>
+                <ul>
+                    <li><strong>Фотографии</strong> — основной и самый очевидный случай. Портреты, пейзажи, репортажные снимки.</li>
+                    <li><strong>Превью и миниатюры</strong> — небольшие картинки в каталогах, галереях, списках товаров.</li>
+                    <li><strong>Фоны и баннеры</strong> — крупные изображения с плавными переходами цвета.</li>
+                    <li><strong>Соцсети и мессенджеры</strong> — при загрузке фото большинство сервисов автоматически конвертируют их в JPEG.</li>
+                    <li><strong>Скриншоты интерфейсов</strong> — если важна компактность, а не идеальная чёткость текста.</li>
+                </ul>
+                <p>JPEG плохо подходит для логотипов, иконок, схем и текста — там нужны чёткие края и прозрачность. Для таких задач лучше PNG или SVG.</p>
+
+                <hr class="my-4">
+
+                <h2 id="examples" class="mb-3">Примеры</h2>
+                <p>Наглядный пример работы JPEG — одна и та же фотография, сохранённая с разным качеством. Чем ниже качество, тем меньше вес файла, но тем заметнее артефакты сжатия.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <img src="./images/jpg-quality-95.jpg"
+                             alt="JPEG высокого качества, 95%"
+                             title="JPEG качество 95%"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="400" height="225">
+                        <p class="text-body-secondary small mb-0">Качество 95%<br><span class="text-success">Максимальная детализация, большой вес</span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/jpg-quality-60.jpg"
+                             alt="JPEG среднего качества, 60%"
+                             title="JPEG качество 60%"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="400" height="225">
+                        <p class="text-body-secondary small mb-0">Качество 60%<br><span class="text-warning">Баланс веса и качества</span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/jpg-quality-20.jpg"
+                             alt="JPEG низкого качества, 20%"
+                             title="JPEG качество 20%"
+                             class="img-fluid rounded mb-2"
+                             loading="lazy"
+                             width="400" height="225">
+                        <p class="text-body-secondary small mb-0">Качество 20%<br><span class="text-danger">Заметные артефакты сжатия</span></p>
+                    </div>
+                </div>
+
+                <p class="mt-4">Для веба обычно выбирают качество <strong>75–85%</strong> — на глаз разница с оригиналом незаметна, а вес файла в 2–3 раза меньше, чем при 100%.</p>
+
+                <hr class="my-4">
+
+                <p>JPEG остаётся самым используемым форматом для фотографий, несмотря на появление WebP и AVIF. Причина проста: он работает везде, весит мало и даёт предсказуемый результат. Для современного сайта JPEG обычно оставляют как запасной формат — на случай, если браузер не поддерживает WebP.</p>
+            </main>
+
+            <aside class="col-md-3 col-lg-2 bg-body-tertiary border-start d-none d-md-block">
+                <div class="position-sticky top-0 p-3">
+                    <nav class="nav flex-column">
+                        <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                        <a class="nav-link" href="#history">История</a>
+                        <a class="nav-link" href="#features">Особенности</a>
+                        <a class="nav-link" href="#usage">Применение</a>
+                        <a class="nav-link" href="#examples">Примеры</a>
+                    </nav>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Другие форматы</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="./png.html">PNG</a></li>
+                        <li><a class="nav-link" href="./gif.html">GIF</a></li>
+                        <li><a class="nav-link" href="./webp.html">WebP</a></li>
+                    </ul>
+
+                    <hr class="my-3">
+
+                    <p class="h6 text-body-secondary mb-2">Полезные ссылки</p>
+                    <ul class="nav flex-column">
+                        <li><a class="nav-link" href="https://ru.wikipedia.org/wiki/JPEG" target="_blank" rel="noopener">Wikipedia — JPEG</a></li>
+                        <li><a class="nav-link" href="https://jpeg.org" target="_blank" rel="noopener">JPEG.org</a></li>
+                        <li><a class="nav-link" href="https://squoosh.app" target="_blank" rel="noopener">Squoosh</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </div>
 
     <footer class="py-4 border-top">
         <address class="container text-center text-body-secondary mb-0">
@@ -36,6 +151,43 @@
             <p class="mb-1">© 2026</p>
         </address>
     </footer>
-<script src="./scripts/bootstrap.bundle.min.js"></script>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav">
+        <div class="offcanvas-header">
+            <p class="h5 offcanvas-title">Меню</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Разделы</p>
+                <a class="nav-link" href="./index.html">Главная</a>
+                <a class="nav-link active" href="./raster.html">Растр</a>
+                <a class="nav-link" href="./svg.html">SVG</a>
+                <a class="nav-link" href="./canvas.html">Canvas</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">Форматы</p>
+                <a class="nav-link active" href="./jpg.html">JPEG</a>
+                <a class="nav-link" href="./png.html">PNG</a>
+                <a class="nav-link" href="./gif.html">GIF</a>
+                <a class="nav-link" href="./webp.html">WebP</a>
+            </nav>
+
+            <hr class="my-3">
+
+            <nav class="nav flex-column">
+                <p class="h6 text-body-secondary mb-2">На этой странице</p>
+                <a class="nav-link" href="#history" data-bs-dismiss="offcanvas">История</a>
+                <a class="nav-link" href="#features" data-bs-dismiss="offcanvas">Особенности</a>
+                <a class="nav-link" href="#usage" data-bs-dismiss="offcanvas">Применение</a>
+                <a class="nav-link" href="#examples" data-bs-dismiss="offcanvas">Примеры</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="./scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>
